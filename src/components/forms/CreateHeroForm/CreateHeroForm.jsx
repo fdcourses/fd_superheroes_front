@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
+import { useDispatch } from 'react-redux';
 import * as HeroActionCreators from '../../../actions/heroActionCreators';
 
 const initialValues = {
@@ -10,10 +11,13 @@ const initialValues = {
 };
 
 const CreateHeroForm = (props) => {
+  const dispatch = useDispatch();
 
   
   const submitHandler = (values, formikBag) => {
 
+    const action = HeroActionCreators.createHeroRequest(values);
+    dispatch(action);
     formikBag.resetForm();
   }
 
