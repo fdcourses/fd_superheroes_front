@@ -54,7 +54,7 @@ const CreateHeroForm = (props) => {
                     {values.superPowers.length > 0 &&
                       values.superPowers.map((hero, index) => {
                         return (
-                          <div>
+                          <div key={`superPowers.${index}`} >
                             <Field
                               placeholder="Superpower"
                               name={`superPowers.${index}`}
@@ -79,7 +79,7 @@ const CreateHeroForm = (props) => {
                   {values.images.length > 0 &&
                     values.images.map((img, index) => {
                       return (
-                        <div>
+                        <div key={`images.${index}`}>
                           <input
                             type="file"
                             name={`images.${index}`}
